@@ -15,11 +15,21 @@ public class CarroService {
     private CarroRepository carroRepository;
 
     public String save(Carro carro){
+        this.verificarNomeCarro(carro.getNome(),carro.getAno());
         this.carroRepository.save(carro);
         return "Carro salvo com sucesso.";
     }
 
+    public boolean verificarNomeCarro(String nome, int ano){
+        if(nome.equals("Jeep Compass") && ano < 2006){
+            throw new RuntimeException();
+        }
+        return true;
+    }
     public String update(Carro carro, Long id){
+
+        this.verificarNomeCarro(carro.getNome(),carro.getAno());
+
         carro.setId(id);
         this.carroRepository.save(carro);
         return "Carro atualizado com sucesso.";
