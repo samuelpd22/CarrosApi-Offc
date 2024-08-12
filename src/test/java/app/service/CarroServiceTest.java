@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
 
 @SpringBootTest
 public class CarroServiceTest {
@@ -28,8 +29,10 @@ public class CarroServiceTest {
     @DisplayName("Teste de ano menor que 1995, COM EXCEPTION")
     void cenario02(){
         Assertions.assertThrows(Exception.class, ()-> {
-            boolean retorno = this.carroService.verificarNomeCarro("Jeep Compass",2020);
+            boolean retorno = this.carroService.verificarNomeCarro("Jeep Compass",1990);
         });
     }
+
+
 
 }

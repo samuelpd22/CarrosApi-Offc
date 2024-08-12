@@ -41,12 +41,16 @@ public class CarroService {
     }
 
 
+
+
     public List<Carro> listAll(){
         List<Carro> lista = carroRepository.findAll();
         return lista;
     }
 
     public Carro findById(Long id){
+
+
         Carro carro = this.carroRepository.findById(id).get();
         return carro;
     }
